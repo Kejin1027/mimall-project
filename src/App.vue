@@ -8,6 +8,23 @@
   </div>
 </template>
 
+<script>
+import jsonp from 'jsonp'
+export default {
+  data() {
+    return {
+      data: ''
+    }
+  },
+  mounted(){
+    let url = "/activity/servicetime"
+    jsonp(url, (err, res) => {
+      let result = res
+      this.data = result
+    })
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
