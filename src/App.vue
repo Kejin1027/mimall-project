@@ -18,6 +18,8 @@ export default {
     }
   },
   mounted(){
+    this.getUser()
+    this.getCartCount()
     // let url = "/activity/servicetime"
     // jsonp(url, (err, res) => {
     //   let result = res
@@ -33,9 +35,23 @@ export default {
     // this.axios.get('/user/login').then((res) => {
     //   this.res = res
     // })
+  },
+  methods:{
+    getUser(){
+      this.axios.get('/user').then(() => {
+        // to-do 保存到vuex里面
+      })
+    },
+    getCartCount(){
+      this.axios.get('/carts/products/sum').then(() => {
+        // to-do 保存到vuex里面
+      })
+    }
   }
 }
 </script>
 <style>
-@import './assets/scss/reset.scss'
+@import './assets/scss/reset.scss';
+@import './assets/scss/button.scss';
+
 </style>
