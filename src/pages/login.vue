@@ -38,6 +38,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'login',
   data() {
@@ -55,6 +56,8 @@ export default {
         password
       }).then((res) => {
         this.$cookie.set('userId', res.id, {expires: '1D'})
+        // this.$store.dispatch('saveUserName', res.username)
+        this.saveUserName(res.username);
         this.$router.push('/index')
       })
     },
@@ -66,7 +69,8 @@ export default {
       }).then(() => {
         alert("注册成功!")
       })
-    }
+    },
+    ...mapActions(['saveUserName'])
   }
   
 }
