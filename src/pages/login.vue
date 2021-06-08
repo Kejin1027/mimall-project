@@ -38,6 +38,7 @@
   </div>
 </template>
 <script>
+import { Message } from 'element-ui';
 import { mapActions } from 'vuex'
 export default {
   name: 'login',
@@ -55,10 +56,15 @@ export default {
         username,
         password
       }).then((res) => {
-        this.$cookie.set('userId', res.id, {expires: '1D'})
+        this.$cookie.set('userId', res.id, {expires: 'Session'})
         // this.$store.dispatch('saveUserName', res.username)
         this.saveUserName(res.username);
-        this.$router.push('/index')
+        this.$router.push({
+          name: 'index',
+          params: {
+            from: 'login'
+          }
+        })
       })
     },
     register(){
@@ -67,7 +73,7 @@ export default {
         password: 'admin27',
         email: 'admin27@163.com'
       }).then(() => {
-        alert("注册成功!")
+        Message.success("注册成功!")
       })
     },
     ...mapActions(['saveUserName'])
