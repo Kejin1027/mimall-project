@@ -1,7 +1,7 @@
 .modal{
   @include position(fixed);
   z-index: 10;
-  transition: all 1s;
+  transition: all 0.5s;
   .mask{
     @include position(fixed);
     background-color: rgba(0, 0, 0, .5);;
