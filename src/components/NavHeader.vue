@@ -7,6 +7,7 @@
             <a href="javascript:;">MIUI</a>
             <a href="javascript:;">云服务</a>
             <a href="javascript:;">协议规则</a>
+            <a href="">{{test}}</a>
         </div>
         <div class="topbar-user">
             <a href="javascript:;" v-if="username">{{username}}</a>
@@ -118,7 +119,7 @@
 
 <script>
 import { Message } from 'element-ui'
-// import { mapState } from 'vuex'
+import { mapState } from 'vuex'
 export default {
     name: 'nav-footer',
     data(){
@@ -133,6 +134,7 @@ export default {
       }
     },
     computed:{
+      ...mapState(['test']),
       username(){
         return this.$store.state.username
       },
@@ -148,6 +150,7 @@ export default {
       if(params && params.from == 'login'){
         this.getCartCount()
       }
+      this.$store.dispatch('saveTestName','TTTT')
     },
     methods: {
       login(){

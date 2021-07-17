@@ -1,9 +1,7 @@
 <template>
-  <div class="nav-bar" :class="{'is_fixed': isFixed}">
+  <div class="nav-bar" :class="{ is_fixed: isFixed }">
     <div class="container">
-      <div class="pro-title">
-        小米8
-      </div>
+      <div class="pro-title">小米8</div>
       <div class="pro-param">
         <a href="javascript:;">概述</a><span>|</span>
         <a href="javascript:;">参数</a><span>|</span>
@@ -16,58 +14,61 @@
 
 <script>
 export default {
-  name: 'nav-bar',
+  name: "nav-bar",
   data() {
-      return {
-          isFixed: false
-      }
+    return {
+      isFixed: false,
+    };
   },
   mounted() {
-    window.addEventListener('scroll', this.initHeight)
+    window.addEventListener("scroll", this.initHeight);
   },
   methods: {
-    initHeight(){
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      this.isFixed = scrollTop > 152 ? true : false
-    }
+    initHeight() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      this.isFixed = scrollTop > 152 ? true : false;
+    },
   },
   destroyed() {
-    window.removeEventListener('scroll', this.initHeight, false)
+    window.removeEventListener("scroll", this.initHeight, false);
   },
-}
+};
 </script>
 
 <style lang="scss">
-  @import './../assets/scss/config.scss';
-  @import './../assets/scss/mixin.scss';
-  .nav-bar{
-    height: 70px;
-    line-height: 70px;
-    border-top: 1px solid $colorH;
-    background-color: $colorG;
-    z-index: 10;
-    &.is_fixed{
-      position: fixed;
-      top: 0;
-      width: 100%;
-      box-shadow: 0 5px 5px $colorE;
+@import "./../assets/scss/config.scss";
+@import "./../assets/scss/mixin.scss";
+.nav-bar {
+  height: 70px;
+  line-height: 70px;
+  border-top: 1px solid $colorH;
+  background-color: $colorG;
+  z-index: 10;
+  &.is_fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 5px 5px $colorE;
+  }
+  .container {
+    @include flex();
+    .pro-title {
+      font-size: $fontH;
+      color: $colorB;
+      font-weight: bold;
     }
-    .container{
-      @include flex();
-      .pro-title{
-        font-size: $fontH;
-        color: $colorB;
-        font-weight: bold;
+    .pro-param {
+      font-size: $fontJ;
+      a {
+        color: $colorC;
       }
-      .pro-param{
-        font-size: $fontJ;
-        a{
-          color: $colorC;
-        }
-        span{
-          margin: 0 10px;
-        }
+      span {
+        margin: 0 10px;
       }
     }
   }
+}
 </style>

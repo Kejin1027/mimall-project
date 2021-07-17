@@ -5,5 +5,8 @@ export default{
   },
   saveCartCount(state, cartCount){
     state.cartCount = cartCount
+  },
+  saveTestName(state, test){
+    state.test = test
   }
 }

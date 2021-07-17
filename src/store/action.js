@@ -5,5 +5,8 @@ export default{
   },
   saveCartCount(context, cartCount){
     context.commit('saveCartCount',cartCount)
+  },
+  saveTestName(context, test){
+    context.commit('saveTestName', test)
   }
 }

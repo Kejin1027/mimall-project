@@ -22,7 +22,7 @@ export default {
       title: String
     },
     computed:{
-      ...mapState(['username'])
+      ...mapState(['username','test'])
     },
 }
 </script>
